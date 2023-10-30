@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import List from "./List";
 
 const App = () => {
-  let inputRef = useRef();
+  const inputRef = useRef();
   const [inputValue, setInputValue] = useState("");
   const [names, setNames] = useState([
     { id: 1, body: "Паша" },
@@ -13,14 +13,14 @@ const App = () => {
   const addElem = (e) => {
     e.preventDefault();
     if (!inputValue) return;
-    let newLi = { id: Date.now(), body: inputValue };
+    const newLi = { id: Date.now(), body: inputValue };
     setNames([...names, newLi]);
     setInputValue("");
   };
 
   const changeElem = (e) => {
     e.preventDefault();
-    let newNames = names.concat().map((obj) => {
+    const newNames = names.concat().map((obj) => {
       return {
         ...obj,
         body: obj.body + "!!!",
